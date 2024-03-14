@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first, must_be_immutable
 import 'package:flutter/material.dart';
+import 'package:my_portfolio/constant/colors.dart';
 
 class SmallText extends StatelessWidget {
   final String text;
@@ -20,7 +21,10 @@ class SmallText extends StatelessWidget {
     return Text(
       text,
       textAlign: TextAlign.justify,
-      style: TextStyle(fontSize:w>650? (w *size)/1600: size ),
+      style: TextStyle(
+        
+        color: textColor,
+        fontSize:w>650? (w *size)/1600: size ),
     );
   }
 }

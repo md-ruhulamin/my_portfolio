@@ -12,6 +12,89 @@ import 'package:my_portfolio/widget/social_contact_card.dart';
 import 'package:my_portfolio/widget/url_launcher.dart';
 import 'package:social_media_flutter/widgets/icons.dart';
 
+class AnimatedImageContainer extends StatefulWidget {
+  const AnimatedImageContainer({Key? key}) : super(key: key);
+
+  @override
+  AnimatedImageContainerState createState() => AnimatedImageContainerState();
+}
+
+class AnimatedImageContainerState extends State<AnimatedImageContainer>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 1000),
+    )..repeat(reverse: true); // Repeat the animation loop
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final screensize = MediaQuery.of(context).size;
+    double h = screensize.height;
+    double w = screensize.width;
+
+    final DesktopDimensions = DesktopResponsive(w, h);
+    return AnimatedBuilder(
+      animation: _controller,
+      builder: (context, child) {
+        final value = _controller.value;
+
+        return Transform.translate(
+          offset: Offset(0, 2 * value), // Move the container up and down
+          child: Container(
+            height: DesktopDimensions.w100 * 2,
+            width: DesktopDimensions.w100 * 2,
+            padding: EdgeInsets.all(DesktopDimensions.w5),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(DesktopDimensions.w30),
+              gradient: const LinearGradient(colors: [
+                Colors.pinkAccent,
+                Colors.blue,
+              ]),
+              boxShadow: const [
+                BoxShadow(
+                  color: Colors.pink,
+                  offset: Offset(-2, 0),
+                  blurRadius: 1,
+                ),
+                BoxShadow(
+                  color: Colors.blue,
+                  offset: Offset(2, 0),
+                  blurRadius: 1,
+                ),
+              ],
+            ),
+            child: Container(
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                color: Colors.black,
+                borderRadius: BorderRadius.circular(DesktopDimensions.w30),
+              ),
+              child: Image.asset(
+                'assets/images/panjabirbg.png',
+                height: DesktopDimensions.w100 * 2,
+                width: DesktopDimensions.w100 * 2,
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+        );
+      },
+    );
+  }
+}
+
 class MyInfo extends StatefulWidget {
   MyInfo({
     super.key,
@@ -22,13 +105,13 @@ class MyInfo extends StatefulWidget {
 }
 
 class _MyInfoState extends State<MyInfo> {
+  bool _isHovered = false;
   int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
     final screensize = MediaQuery.of(context).size;
     double h = screensize.height;
     double w = screensize.width;
-  
     final DesktopDimensions = DesktopResponsive(w, h);
 
     final openUrl = OpenUrl();
@@ -42,7 +125,7 @@ class _MyInfoState extends State<MyInfo> {
             top: DesktopDimensions.screenWidth / 13, //130,
             child: Container(
                 decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: bgColor,
                     borderRadius: BorderRadius.circular(DesktopDimensions.w10)),
                 padding: EdgeInsets.all(DesktopDimensions.w30 / 2),
                 width: w / 4,
@@ -65,71 +148,102 @@ class _MyInfoState extends State<MyInfo> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        InkWell(
-                          onTap: () {
-                            openUrl.LaunchUrl(facebook);
-                          },
-                          child: ContactCard(
-                            icon: SocialIconsFlutter.facebook,
-                          ),
+                        ContactCard(
+                          url: facebook,
+                          icon: SocialIconsFlutter.facebook,
                         ),
-                        InkWell(
-                          onTap: () {
-                            openUrl.launchEmail();
-                          },
-                          child: ContactCard(
-                            icon: Icons.email,
-                          ),
+                        ContactCard(
+                          url: email,
+                          icon: Icons.email,
                         ),
-                        InkWell(
-                          onTap: () {
-                            openUrl.LaunchUrl(github);
-                          },
-                          child: ContactCard(
-                            icon: SocialIconsFlutter.github,
-                          ),
+                        ContactCard(
+                          url: github,
+                          icon: SocialIconsFlutter.github,
                         ),
-                        InkWell(
-                          onTap: () {
-                            openUrl.LaunchUrl(linkedin);
-                          },
-                          child: ContactCard(
-                            icon: SocialIconsFlutter.linkedin,
-                          ),
+                        ContactCard(
+                          url: linkedin,
+                          icon: SocialIconsFlutter.linkedin,
                         ),
-                        InkWell(
-                          onTap: () {
-                            openUrl.LaunchUrl(leetcode);
+                        MouseRegion(
+                          onEnter: (_) {
+                            setState(() {
+                              _isHovered = true;
+                            });
                           },
-                          child: Container(
-                            alignment: Alignment.center,
-                            height: DesktopDimensions.screenWidth / 32,
-                            width: DesktopDimensions.screenWidth / 32,
-                            decoration: BoxDecoration(
-                              borderRadius:
-                                  BorderRadius.circular(DesktopDimensions.w10),
-                              color: Color.fromARGB(255, 229, 245, 229),
-                              shape: BoxShape.rectangle,
-                            ),
-                            child: Image.asset(
-                              "assets/images/leetcode.png",
-                              height: DesktopDimensions.screenWidth / 40,
+                          onExit: (_) {
+                            setState(() {
+                              _isHovered = false;
+                            });
+                          },
+                          child: InkWell(
+                            onTap: () {
+                              openUrl.LaunchUrl(leetcode);
+                            },
+                            child: Container(
+                              alignment: Alignment.center,
+                              height: DesktopDimensions.screenWidth / 32,
+                              width: DesktopDimensions.screenWidth / 32,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(
+                                    DesktopDimensions.w10),
+                                boxShadow: _isHovered
+                                    ? [
+                                        BoxShadow(
+                                            color: Colors.white,
+                                            blurRadius: 5,
+                                            offset: (Offset(5, -5))),
+                                        BoxShadow(
+                                            color: Colors.white,
+                                            blurRadius: 5,
+                                            offset: (Offset(-5, 5))),
+                                      ]
+                                    : [
+                                        BoxShadow(
+                                            color: Colors.white,
+                                            blurRadius: 1,
+                                            offset: (Offset(1, -1))),
+                                        BoxShadow(
+                                            color: Colors.white,
+                                            blurRadius: 1,
+                                            offset: (Offset(-1, 1))),
+                                      ],
+                                color: _isHovered
+                                    ? const Color.fromARGB(255, 25, 23, 15)
+                                    : Color.fromARGB(255, 229, 245, 229),
+                                shape: BoxShape.rectangle,
+                              ),
+                              child: Image.asset(
+                                "assets/images/leetcode.png",
+                                height: DesktopDimensions.screenWidth / 40,
+                              ),
                             ),
                           ),
                         ),
                       ],
                     ),
                     SizedBox(
-                      height: DesktopDimensions.w10,
+                      height: DesktopDimensions.w30,
                     ),
                     Container(
                         padding: EdgeInsets.symmetric(
-                            vertical: DesktopDimensions.w10),
+                            vertical: DesktopDimensions.w20),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(
                             DesktopDimensions.w15,
                           ),
-                          color: const Color.fromARGB(255, 239, 239, 239),
+                          color: cardColor,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.pink,
+                              offset: const Offset(-2, 0),
+                              blurRadius: 20,
+                            ),
+                            BoxShadow(
+                              color: Colors.blue,
+                              offset: const Offset(2, 0),
+                              blurRadius: 20,
+                            ),
+                          ],
                           shape: BoxShape.rectangle,
                         ),
                         child: ContactInfo()),
@@ -140,20 +254,26 @@ class _MyInfoState extends State<MyInfo> {
             top: DesktopDimensions.w20,
             left: DesktopDimensions.w50 * 2,
             //    FF9C1A
-            child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(
-                    DesktopDimensions.w20,
-                  ),
-                  color: Colors.orangeAccent,
-                  shape: BoxShape.rectangle,
-                ),
-                child: Image(
-                    width: DesktopDimensions.screenWidth / 8,
-                    height: DesktopDimensions.screenWidth / 8,
-                    fit: BoxFit.cover,
-                    image: AssetImage("assets/images/panjabirbg2.png"))),
+            child: AnimatedImageContainer(),
           ),
+          // Positioned(
+          //   top: DesktopDimensions.w20,
+          //   left: DesktopDimensions.w50 * 2,
+          //   //    FF9C1A
+          //   child: Container(
+          //       decoration: BoxDecoration(
+          //         borderRadius: BorderRadius.circular(
+          //           DesktopDimensions.w20,
+          //         ),
+          //         color: Colors.orangeAccent,
+          //         shape: BoxShape.rectangle,
+          //       ),
+          //       child: Image(
+          //           width: DesktopDimensions.screenWidth / 8,
+          //           height: DesktopDimensions.screenWidth / 8,
+          //           fit: BoxFit.cover,
+          //           image: AssetImage("assets/images/panjabirbg2.png"))),
+          // ),
         ],
       ),
     );
@@ -438,10 +558,11 @@ class MyInfoForDeskTop extends StatelessWidget {
     final screensize = MediaQuery.of(context).size;
     double h = screensize.height;
     double w = screensize.width;
- // ignore: non_constant_identifier_names
- final DesktopDimensions = DesktopResponsive(w, h);
+    // ignore: non_constant_identifier_names
+    final DesktopDimensions = DesktopResponsive(w, h);
 
     return Container(
+      color: staticColor,
       width: DesktopDimensions.screenWidth / 3.54, //w/3.54
       height: DesktopDimensions.screenWidth / 2.28,
       child: Stack(
@@ -479,6 +600,7 @@ class MyInfoForDeskTop extends StatelessWidget {
                             openUrl.LaunchUrl(facebook);
                           },
                           child: ContactCard(
+                            url: facebook,
                             icon: SocialIconsFlutter.facebook,
                           ),
                         ),
@@ -487,6 +609,7 @@ class MyInfoForDeskTop extends StatelessWidget {
                             openUrl.launchEmail();
                           },
                           child: ContactCard(
+                            url: email,
                             icon: Icons.email,
                           ),
                         ),
@@ -495,6 +618,7 @@ class MyInfoForDeskTop extends StatelessWidget {
                             openUrl.LaunchUrl(github);
                           },
                           child: ContactCard(
+                            url: github,
                             icon: SocialIconsFlutter.github,
                           ),
                         ),
@@ -503,6 +627,7 @@ class MyInfoForDeskTop extends StatelessWidget {
                             openUrl.LaunchUrl(linkedin);
                           },
                           child: ContactCard(
+                            url: linkedin,
                             icon: SocialIconsFlutter.linkedin,
                           ),
                         ),
@@ -517,7 +642,7 @@ class MyInfoForDeskTop extends StatelessWidget {
                             decoration: BoxDecoration(
                               borderRadius:
                                   BorderRadius.circular(DesktopDimensions.w10),
-                              color: Color.fromARGB(255, 229, 245, 229),
+                              color: staticColor,
                               shape: BoxShape.rectangle,
                             ),
                             child: Image.asset(
@@ -538,7 +663,18 @@ class MyInfoForDeskTop extends StatelessWidget {
                           borderRadius: BorderRadius.circular(
                             DesktopDimensions.w15,
                           ),
-                          color: const Color.fromARGB(255, 239, 239, 239),
+                          color: staticColor,
+                          boxShadow: [
+                            BoxShadow(
+                                color: Colors.pink,
+                                offset: const Offset(-2, 0),
+                                blurRadius: 20),
+                            BoxShadow(
+                              color: Colors.blue,
+                              offset: const Offset(2, 0),
+                              blurRadius: 20,
+                            ),
+                          ],
                           shape: BoxShape.rectangle,
                         ),
                         child: ContactInfo()),
@@ -570,18 +706,17 @@ class MyInfoForDeskTop extends StatelessWidget {
 }
 
 class ContactInfo extends StatelessWidget {
-  const ContactInfo({
+  ContactInfo({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
-
-   final screensize = MediaQuery.of(context).size;
+    final screensize = MediaQuery.of(context).size;
     double h = screensize.height;
     double w = screensize.width;
- // ignore: non_constant_identifier_names
- final DesktopDimensions = DesktopResponsive(w, h);
+    // ignore: non_constant_identifier_names
+    final DesktopDimensions = DesktopResponsive(w, h);
     double w10 = DesktopDimensions.w10;
     double w18 = DesktopDimensions.w18;
     double h10 = DesktopDimensions.w10;

@@ -45,8 +45,22 @@ class Experience extends StatelessWidget {
               horizontal:DesktopDimensions. w20, vertical:DesktopDimensions. w10),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(DesktopDimensions.w10),
-            color: cardColor,
+          
+            color: staticColor,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.pink,
+                offset: const Offset(-2, 0),
+                blurRadius: 10,
+              ),
+              BoxShadow(
+                color: Colors.blue,
+                offset: const Offset(2, 0),
+                blurRadius: 10,
+              ),
+            ],
           ),
+        
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

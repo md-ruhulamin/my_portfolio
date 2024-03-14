@@ -26,12 +26,13 @@ class Resume extends StatelessWidget {
 
     return MobileDimensions.screenWidth > mobilescreen
         ? Container(
+            
             padding: EdgeInsets.only(
                 left: DesktopDimensions.w20, right: DesktopDimensions.w20, 
                 top: DesktopDimensions.w15, bottom:DesktopDimensions. w10 / 2),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(DesktopDimensions.w20),
-              color: Colors.white,
+               color:  bgColor,
             ),
             height: DesktopDimensions.Pagesize,
             child: SingleChildScrollView(
@@ -41,6 +42,7 @@ class Resume extends StatelessWidget {
                   Bigtext(
                     text: "Resume",
                     size: DesktopDimensions.headingfontsize,
+                    color:textColor
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,

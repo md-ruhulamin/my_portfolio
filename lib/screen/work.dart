@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 import 'package:flutter/material.dart';
+import 'package:my_portfolio/constant/colors.dart';
 import 'package:my_portfolio/constant/dimension.dart';
 import 'package:my_portfolio/constant/size_definer.dart';
 import 'package:my_portfolio/widget/bigText.dart';
@@ -13,11 +14,11 @@ class Work extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   final screensize = MediaQuery.of(context).size;
+    final screensize = MediaQuery.of(context).size;
     double h = screensize.height;
     double w = screensize.width;
- // ignore: non_constant_identifier_names
- final DesktopDimensions = DesktopResponsive(w, h);
+    // ignore: non_constant_identifier_names
+    final DesktopDimensions = DesktopResponsive(w, h);
     return MobileDimensions.screenWidth > mobilescreen
         ? Container(
             // width: double.infinity,
@@ -28,12 +29,12 @@ class Work extends StatelessWidget {
                 bottom: DesktopDimensions.w10),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(DesktopDimensions.w20),
-              color: Colors.white,
+              color: bgColor,
             ),
             height: DesktopDimensions.Pagesize,
             child: SingleChildScrollView(
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
@@ -51,6 +52,7 @@ class Work extends StatelessWidget {
                       Text(
                         "Explore some of my projects",
                         style: TextStyle(
+                            color: textColor,
                             fontSize: DesktopDimensions.subheadingfontsize,
                             fontWeight: FontWeight.w400),
                       ),
@@ -100,52 +102,78 @@ class Work extends StatelessWidget {
                 SizedBox(
                   height: MobileDimensions.h5,
                 ),
-                Wrap(
-                  alignment: WrapAlignment.center,
-                  spacing: MobileDimensions.w20,
-                  runSpacing: MobileDimensions.w20,
-                  children: <Widget>[
-                    ProjectCard(
-                      title: "Delicious|A food delivey app ",
-                      subtitle: "Dart,Firebase,Api,GetX,Payment",
-                      path: "assets/images/delicious.png",
-                      url: "https://github.com/md-ruhulamin/delicious/",
-                      preview:
-                          "https://drive.google.com/drive/folders/1LujI03mCuy9H_rqpAJTyJyLpVSv7gTss?usp=sharing",
-                    ),
-                    ProjectCard(
-                      title: "HealthCare | Android App",
-                      subtitle: "Java,Firebase,API",
-                      path: "assets/images/healthcare.png",
-                      url: "https://github.com/md-ruhulamin/healthcare",
-                      preview: "preview",
-                    ),
-                    ProjectCard(
-                      title: "T-Shirt Size Prediction App",
-                      subtitle: "Dart,KNN-Machine Learning",
-                      path: "assets/images/tshirt.png",
-                      url: "https://github.com/md-ruhulamin/t_shirt",
-                      preview:
-                          "https://drive.google.com/drive/folders/1v4EoiuQPENizLKLFND9D3Hh7r9elrP7l?usp=sharing",
-                    ),
-                    ProjectCard(
-                      title: "Food Delivery App | UI",
-                      subtitle: "Dart,Api,GetX",
-                      path: "assets/images/appss1.png",
-                      url: "https://github.com/md-ruhulamin/food_delivery",
-                      preview:
-                          "https://drive.google.com/drive/folders/14rbl5MZfxT5WY6sP74feSNd03XoICbn3?usp=sharing",
-                    ),
-                    ProjectCard(
-                      title: "Gender Bias Text Detection",
-                      subtitle: "Android ,Java,Machine Learning",
-                      path: "assets/images/bias.png",
-                      url:
-                          "https://drive.google.com/drive/folders/1-0zhECc7EJs5x9yBZl0jloBkaXAEQYtP?usp=sharing",
-                      preview:
-                          "https://drive.google.com/drive/folders/1-0zhECc7EJs5x9yBZl0jloBkaXAEQYtP?usp=sharing",
-                    ),
-                  ],
+              
+
+                Expanded(
+                  child: Wrap(
+                    runAlignment: WrapAlignment.spaceBetween,
+                    alignment: WrapAlignment.spaceBetween,
+                    spacing: MobileDimensions.w20,
+                    runSpacing: MobileDimensions.w20,
+                    children: <Widget>[
+                      ProjectCard(
+            title: "Delicious | A food delivey App",
+            subtitle: "Dart,Firebase,Api,GetX,Payment",
+            details:
+                "Developed a customer-friendly food app using Flutter framework where users can perform several actions create accounts in various ways using Firebase, fetch data from Firebase, add to cart, add favorite, filter, place to order, etc. Also admin can control any account from the admin panel, add products, can edit product info.",
+            //path: "assets/images/delicious.png",
+            url: "https://github.com/md-ruhulamin/delicious/",
+            preview:
+                "https://drive.google.com/drive/folders/1LujI03mCuy9H_rqpAJTyJyLpVSv7gTss?usp=sharing",
+          ),
+         
+          ProjectCard(
+            title: "T-Shirt Size Prediction App",
+            subtitle: "Dart,KNN-Machine Learning",
+            details:
+                "An App was developed using flutter and machine learning algorithm KNN(K Nearest Neighbour) where the user provides their height and weight, and based on this information application provides perfect size",
+            url: "https://github.com/md-ruhulamin/t_shirt",
+            preview:
+                "https://drive.google.com/drive/folders/1v4EoiuQPENizLKLFND9D3Hh7r9elrP7l?usp=sharing",
+          ),
+          ProjectCard(
+            title: "Food App | UI",
+            subtitle: "Dart,Api,GetX",
+            //  path: "assets/images/appss1.png",
+            details:
+                " Developed a customer-friendly food app, and redesigned the UI utilizing previous UI elements. Firebase and Shared Preference are used for storing user sessions and other info. GetX is used for state management.",
+            url: "https://github.com/md-ruhulamin/food_delivery",
+            preview:
+                "https://drive.google.com/drive/folders/14rbl5MZfxT5WY6sP74feSNd03XoICbn3?usp=sharing",
+          ),
+          ProjectCard(
+            title: "Gender Bias Text Detection",
+            subtitle: "Android ,Java,Machine Learning",
+            //  path: "assets/images/genderbias.png",
+            details:
+                " An android app was developed with the help of machine learning and deep learning models, analyzing the gender-based bangla text (comments) of social media has been detected whether the speech supports gender bias or not",
+            url:
+                "https://drive.google.com/drive/folders/1-0zhECc7EJs5x9yBZl0jloBkaXAEQYtP?usp=sharing",
+            preview:
+                "https://drive.google.com/drive/folders/1-0zhECc7EJs5x9yBZl0jloBkaXAEQYtP?usp=sharing",
+          ),
+          ProjectCard(
+            title: "Temporary Email via RESTful API",
+            subtitle: "Flutter ,API, HTTP,GetX",
+            //   path: "assets/images/genderbias.png",
+
+            details:
+                "A temporary email application works by generating a temporary email address that you can use for a specific purpose. such as: Verification ,  Privacy and Spam Prevention  etc.",
+            url:
+                "https://github.com/md-ruhulamin/temporary__email",
+            preview:
+                "https://github.com/md-ruhulamin/temporary__email",
+          ), ProjectCard(
+            title: "HealthCare | Android App",
+            subtitle: "Java,Firebase,API",
+            //  details: "assets/images/healthcare.png",
+            details:
+                "A healthcare app that provides health realeted services and provide online appoinment to any doctor",
+            url: "https://github.com/md-ruhulamin/healthcare",
+            preview: "preview",
+          ),
+        ],
+                  ),
                 )
               ],
             ),
@@ -158,12 +186,12 @@ class ProjectCard extends StatelessWidget {
   final String subtitle;
   final String url;
   final String preview;
-  final String path;
+  final String details;
   const ProjectCard({
     super.key,
     required this.title,
     required this.subtitle,
-    required this.path,
+    required this.details,
     required this.url,
     required this.preview,
   });
@@ -187,11 +215,11 @@ class ProjectCard extends StatelessWidget {
             w300: w300,
             w10: w10,
             h10: h10,
-            path: path,
+            details:details,
             h100: h100,
             title: title,
             w20: w20,
-            subtitle: subtitle,
+            tools: subtitle,
             openUrl: openUrl,
             url: url,
             preview: preview)
@@ -215,7 +243,7 @@ class ProjectCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Image(image: AssetImage(path), height: MobileDimensions.h100),
+              //  Image(image: AssetImage(path), height: MobileDimensions.h100),
                 Text(title,
                     style: TextStyle(
                         fontSize: MobileDimensions.font17 * 1.2,

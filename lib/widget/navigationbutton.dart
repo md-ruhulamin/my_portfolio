@@ -5,7 +5,7 @@ import 'package:my_portfolio/constant/colors.dart';
 import 'package:my_portfolio/constant/dimension.dart';
 import 'package:my_portfolio/constant/size_definer.dart';
 
-class NavigationButton extends StatelessWidget {
+class NavigationButton extends StatefulWidget {
   final int index;
   final int selectedIndex;
   final String text;
@@ -19,12 +19,19 @@ class NavigationButton extends StatelessWidget {
   });
 
   @override
+  State<NavigationButton> createState() => _NavigationButtonState();
+}
+
+class _NavigationButtonState extends State<NavigationButton> {
+  bool isHover = false;
+
+  @override
   Widget build(BuildContext context) {
-   final screensize = MediaQuery.of(context).size;
+    final screensize = MediaQuery.of(context).size;
     double h = screensize.height;
     double w = screensize.width;
- // ignore: non_constant_identifier_names
- final DesktopDimensions = DesktopResponsive(w, h);
+    // ignore: non_constant_identifier_names
+    final DesktopDimensions = DesktopResponsive(w, h);
 
     return DesktopDimensions.screenWidth > mobilescreen
         ? Container(
@@ -34,26 +41,63 @@ class NavigationButton extends StatelessWidget {
                 vertical: DesktopDimensions.w10 / 3,
                 horizontal: DesktopDimensions.w10 / 1.5),
             decoration: BoxDecoration(
-                color: selectedIndex == index
+               boxShadow: isHover
+                        ? [
+                            const BoxShadow(
+                                color: Colors.white,
+                                blurRadius: 2,
+                                offset: (Offset(2, -2))),
+                            const BoxShadow(
+                                color: Colors.white,
+                                blurRadius: 2,
+                                offset: (Offset(-2, 2))),
+                          ]
+                        : [
+                            const BoxShadow(
+                                color: Colors.white,
+                                blurRadius: 1,
+                                offset: (Offset(1, -1))),                            const BoxShadow(
+                                color: Colors.white,
+                                blurRadius: 1,
+                                offset: (Offset(-1, 1))),
+                          ],
+                color: (widget.selectedIndex == widget.index)
                     ? buttonColor
-                    : Color.fromARGB(255, 252, 251, 251),
+                    : (widget.selectedIndex != widget.index && isHover)
+                        ?  cardColor
+                        : Colors.white,
                 borderRadius: BorderRadius.circular(DesktopDimensions.w10)),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  icon,
-                  size: DesktopDimensions.w20,
-                  color: selectedIndex == index ? Colors.white : Colors.black,
-                ),
-                Text(
-                  text,
-                  style: TextStyle(
-                      color:
-                          selectedIndex == index ? Colors.white : Colors.black,
-                      fontSize: DesktopDimensions.w15),
-                )
-              ],
+            child: MouseRegion(
+              onEnter: (_) {
+                setState(() {
+                  isHover = true;
+                });
+              },
+              onExit: (_) {
+                setState(() {
+                  isHover = false;
+                });
+              },
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    widget.icon,
+                    size: DesktopDimensions.w20,
+                    color: widget.selectedIndex == widget.index || isHover
+                            ? Colors.white
+                            : Colors.black,
+                  ),
+                  Text(
+                    widget.text,
+                    style: TextStyle(
+                        color: widget.selectedIndex == widget.index || isHover
+                            ? Colors.white
+                            : Colors.black,
+                        fontSize: DesktopDimensions.w15),
+                  )
+                ],
+              ),
             ),
           )
         : Container(
@@ -63,7 +107,7 @@ class NavigationButton extends StatelessWidget {
                 vertical: MobileDimensions.w10,
                 horizontal: MobileDimensions.w10),
             decoration: BoxDecoration(
-                color: selectedIndex == index
+                color: widget.selectedIndex == widget.index
                     ? buttonColor
                     : Color.fromARGB(255, 252, 251, 251),
                 borderRadius: BorderRadius.circular(MobileDimensions.w10)),
@@ -71,15 +115,18 @@ class NavigationButton extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(
-                  icon,
+                  widget.icon,
                   size: MobileDimensions.w20,
-                  color: selectedIndex == index ? Colors.white : Colors.black,
+                  color: widget.selectedIndex == widget.index
+                      ? Colors.white
+                      : Colors.black,
                 ),
                 Text(
-                  text,
+                  widget.text,
                   style: TextStyle(
-                      color:
-                          selectedIndex == index ? Colors.white : Colors.black,
+                      color: widget.selectedIndex == widget.index
+                          ? Colors.white
+                          : Colors.black,
                       fontSize: MobileDimensions.font13),
                 )
               ],

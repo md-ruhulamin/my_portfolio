@@ -22,10 +22,22 @@ class HireMeWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: w20, vertical: h10),
+      padding: EdgeInsets.symmetric(horizontal: w20/2, vertical: h10/2),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(w10),
-        color: const Color.fromARGB(255, 239, 239, 239),
+       color: cardColor,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.pink,
+              offset: const Offset(-2, 0),
+              blurRadius: 10,
+            ),
+            BoxShadow(
+              color: Colors.blue,
+              offset: const Offset(2, 0),
+              blurRadius:10,
+            ),
+          ],
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

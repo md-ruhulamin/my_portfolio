@@ -20,7 +20,7 @@ class ContactInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: w20, vertical: h20),
+      padding: EdgeInsets.symmetric(horizontal: w20/2, vertical: h20/2),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(w10),
         color: cardColor,

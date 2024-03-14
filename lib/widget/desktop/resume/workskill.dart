@@ -32,15 +32,13 @@ class WorkSkill extends StatelessWidget {
           children: const <Widget>[
             ChipContainer(text: "Dart"),
             ChipContainer(text: "Flutter"),
-            ChipContainer(text: "Dart"),
+         
             ChipContainer(text: "Python"),
             ChipContainer(text: "Java"),
             ChipContainer(text: "C++"),
-            ChipContainer(text: "Python"),
-            ChipContainer(text: "Java"),
-            ChipContainer(text: "C++"),
+           ChipContainer(text: "C"),
             ChipContainer(text: "SQL"),
-            ChipContainer(text: "C"),
+          
             ChipContainer(text: "ML"),
             ChipContainer(text: "NLP"),
             ChipContainer(text: "HTML"),

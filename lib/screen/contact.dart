@@ -31,7 +31,7 @@ class Contact extends StatelessWidget {
                 bottom:DesktopDimensions. w10 / 2),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(DesktopDimensions.w20),
-              color: Colors.white,
+             color:  bgColor,
             ),
             height: DesktopDimensions.Pagesize,
             child: SingleChildScrollView(
@@ -73,7 +73,19 @@ class Contact extends StatelessWidget {
                       padding:
                           EdgeInsets.symmetric(horizontal:DesktopDimensions. w20, vertical:DesktopDimensions. h10),
                       decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 239, 239, 239),
+                         color: cardColor,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.pink,
+              offset: const Offset(-2, 0),
+              blurRadius: 10,
+            ),
+            BoxShadow(
+              color: Colors.blue,
+              offset: const Offset(2, 0),
+              blurRadius:  10,
+            ),
+          ],
                           borderRadius: BorderRadius.circular(10)),
                       child:
                           SendMessage(w15:DesktopDimensions. w15, w20: DesktopDimensions.w20, w10: DesktopDimensions.w10, h10:DesktopDimensions. h10))
@@ -293,6 +305,7 @@ class TextFieldForContact extends StatelessWidget {
           decoration: InputDecoration(
               hintText: text,
               hintStyle: TextStyle(
+                color: Colors.white,
                   fontSize: DesktopDimensions.screenWidth > 650
                       ? DesktopDimensions.font15
                       : MobileDimensions.font15)),

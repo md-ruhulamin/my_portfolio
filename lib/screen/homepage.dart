@@ -64,6 +64,7 @@ class _MobileHomeRootState extends State<MobileHomeRoot> {
     final openUrl = OpenUrl();
 
     return Container(
+  
       child: Column(
         children: [
           Row(
@@ -156,6 +157,7 @@ class _MobileHomeRootState extends State<MobileHomeRoot> {
                                     openUrl.LaunchUrl(facebook);
                                   },
                                   child: ContactCard(
+                                    url: facebook,
                                     icon: SocialIconsFlutter.facebook,
                                   ),
                                 ),
@@ -164,9 +166,11 @@ class _MobileHomeRootState extends State<MobileHomeRoot> {
                                 ),
                                 InkWell(
                                   onTap: () {
+                                    
                                     openUrl.launchEmail();
                                   },
                                   child: ContactCard(
+                                    url: email,
                                     icon: Icons.email,
                                   ),
                                 ),
@@ -178,6 +182,7 @@ class _MobileHomeRootState extends State<MobileHomeRoot> {
                                     openUrl.LaunchUrl(github);
                                   },
                                   child: ContactCard(
+                                    url: github,
                                     icon: SocialIconsFlutter.github,
                                   ),
                                 ),
@@ -189,6 +194,7 @@ class _MobileHomeRootState extends State<MobileHomeRoot> {
                                     openUrl.LaunchUrl(linkedin);
                                   },
                                   child: ContactCard(
+                                    url: linkedin,
                                     icon: SocialIconsFlutter.linkedin,
                                   ),
                                 ),
@@ -416,8 +422,10 @@ class _MobileHomeState extends State<MobileHome> {
   Widget build(BuildContext context) {
     print(selectedIndex);
     return Scaffold(
+    
       body: SafeArea(
         child: Container(
+        
           padding: EdgeInsets.only(
               left: MobileDimensions.w10, right: MobileDimensions.w10, top: MobileDimensions.h20),
           child: SingleChildScrollView(

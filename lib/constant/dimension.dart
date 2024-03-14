@@ -9,46 +9,44 @@ class DesktopResponsive {
     w = x;
     h = y;
   }
- 
-   double get Pagesize => w / 2.85;
-    double get screenHeight => h;
+
+  double get screenHeight => h;
   double get screenWidth => w;
+  double get headingfontsize => screenWidth / 55;
+  double get subheadingfontsize => screenWidth / 65;
+  double get detailsfontsize => screenWidth / 90;
+  double get carddetailsfontsize => screenWidth / 90;
+  double get Pagesize => screenWidth/3;
+  double get w100 => screenWidth / 16;
+  double get w50 => screenWidth / 32;
+  double get w40 => screenWidth / 40;
+  double get w30 => screenWidth / 53.34;
+  double get w20 => screenWidth / 80;
+  double get w15 => screenWidth / 106.67;
+  double get w10 => screenWidth / 160;
+  double get w5 => screenWidth / 320;
+  double get w25 => screenWidth / 64;
+  double get w18 => screenWidth / 88.88;
+  double get w13 => screenWidth / 123.07;
+  double get w17 => screenWidth / 94.11;
 
+  double get font20 => screenWidth / 80;
+  double get font17 => screenWidth / 100;
+  double get font25 => screenWidth / 64;
+  double get font13 => screenWidth / 126;
+  double get font15 => screenWidth / 110;
 
-   double get headingfontsize => screenWidth / 55;
-   double get subheadingfontsize => screenWidth / 65;
-   double get detailsfontsize => screenWidth / 80;
-   double get carddetailsfontsize => screenWidth / 90;
-   double get w100 =>screenWidth / 4;
-   double  get w50 => screenWidth / 32;
-   double get w40 => screenWidth / 40;
-   double get w30 => screenWidth / 53.34;
-   double get w20=> screenWidth / 80;
-   double get w15 => screenWidth / 106.67;
-   double get w10 => screenWidth / 160;
-   double get w5 => screenWidth / 320;
-   double get w25 => screenWidth / 64;
-   double get w18 => screenWidth / 88.88;
-   double get w13 =>screenWidth / 123.07;
-   double get w17 => screenWidth / 94.11;
+  double get w70 => screenWidth / 22.85;
+  double get w80 => screenWidth / 20;
 
-   double get font20 => screenWidth / 80;
-   double get font17 => screenWidth / 94;
-   double get font25 => screenWidth / 64;
-   double get font13 => screenWidth / 123;
-   double get font15 => screenWidth / 106;
-
-   double get w70 => screenWidth / 22.85;
-   double get w80 => screenWidth / 20;
-
-   double get h25 => screenHeight / 30;
-   double get h10 => screenWidth / 75;
-   double get h20 => screenWidth / 37.5;
-   double get h100 => screenHeight / 7.5;
-   double get h200 => screenWidth / 3.75;
-   double get h50 => screenWidth / 15;
-   double get h15 => screenWidth / 50;
-   double get h5 => screenWidth / 150;
+  double get h25 => screenHeight / 30;
+  double get h10 => screenWidth / 75;
+  double get h20 => screenWidth / 37.5;
+  double get h100 => screenHeight / 7.5;
+  double get h200 => screenWidth / 3.75;
+  double get h50 => screenWidth / 15;
+  double get h15 => screenWidth / 50;
+  double get h5 => screenWidth / 150;
 }
 
 //   static double screenHeight = Get.context!.height;

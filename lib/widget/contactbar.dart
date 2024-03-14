@@ -29,8 +29,8 @@ class ContactBar extends StatelessWidget {
         children: [
           Icon(
             icon,
-            color: buttonColor,
-            size:  DesktopDimensions.w25,
+            color: Colors.white,
+            size:  DesktopDimensions.w20,
           ),
            SizedBox(
             width:DesktopDimensions.w10,
@@ -46,7 +46,7 @@ class ContactBar extends StatelessWidget {
                 subtitle,
                 style: TextStyle(
                   fontSize:  DesktopDimensions.font15,
-                  color: Colors.black,
+                  color:textColor
                 ),
               ),
             ],

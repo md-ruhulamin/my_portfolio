@@ -4,7 +4,7 @@ import 'package:my_portfolio/constant/size_definer.dart';
 import 'package:my_portfolio/widget/bigText.dart';
 import 'package:my_portfolio/widget/smalltext.dart';
 
-class Education extends StatelessWidget {
+class Education extends StatefulWidget {
   const Education({
     super.key,
     required this.w30,
@@ -18,6 +18,12 @@ class Education extends StatelessWidget {
   final double w20;
   final double w10;
 
+  @override
+  State<Education> createState() => _EducationState();
+}
+
+class _EducationState extends State<Education> {
+  bool isHover=false;
   @override
   Widget build(BuildContext context) {
     final screensize = MediaQuery.of(context).size;
@@ -52,7 +58,19 @@ class Education extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: w10, vertical: w10),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(w10),
-            color: cardColor,
+            color: staticColor,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.pink,
+                offset: const Offset(-2, 0),
+                blurRadius: isHover ? 20 : 10,
+              ),
+              BoxShadow(
+                color: Colors.blue,
+                offset: const Offset(2, 0),
+                blurRadius: isHover ? 20 : 10,
+              ),
+            ],
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -70,13 +88,25 @@ class Education extends StatelessWidget {
           ),
         ),
         SizedBox(
-          height: w10,
+          height: w20,
         ),
         Container(
           padding: EdgeInsets.symmetric(horizontal: w10, vertical: w10),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(w10),
-            color: cardColor,
+          color: staticColor,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.pink,
+                offset: const Offset(-2, 0),
+                blurRadius: isHover ? 20 : 10,
+              ),
+              BoxShadow(
+                color: Colors.blue,
+                offset: const Offset(2, 0),
+                blurRadius: isHover ? 20 : 10,
+              ),
+            ],
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
