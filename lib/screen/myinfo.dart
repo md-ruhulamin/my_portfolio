@@ -55,37 +55,32 @@ class AnimatedImageContainerState extends State<AnimatedImageContainer>
           child: Container(
             height: DesktopDimensions.w100 * 2,
             width: DesktopDimensions.w100 * 2,
-            padding: EdgeInsets.all(DesktopDimensions.w5),
+            padding: EdgeInsets.symmetric(horizontal:DesktopDimensions.w5,vertical: DesktopDimensions.w5 ),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(DesktopDimensions.w30),
+              borderRadius: BorderRadius.circular(DesktopDimensions.w10),
               gradient: const LinearGradient(colors: [
                 Colors.pinkAccent,
                 Colors.blue,
               ]),
-              boxShadow: const [
-                BoxShadow(
-                  color: Colors.pink,
-                  offset: Offset(-2, 0),
-                  blurRadius: 1,
-                ),
-                BoxShadow(
-                  color: Colors.blue,
-                  offset: Offset(2, 0),
-                  blurRadius: 1,
-                ),
-              ],
+           
             ),
             child: Container(
               alignment: Alignment.center,
               decoration: BoxDecoration(
-                color: Colors.black,
-                borderRadius: BorderRadius.circular(DesktopDimensions.w30),
+               color: cardColor,
+                borderRadius: BorderRadius.circular(DesktopDimensions.w10),
               ),
-              child: Image.asset(
-                'assets/images/panjabirbg.png',
-                height: DesktopDimensions.w100 * 2,
-                width: DesktopDimensions.w100 * 2,
-                fit: BoxFit.cover,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(DesktopDimensions.w10),
+              
+                child: Image.asset(
+                  
+                  'assets/images/ruhul_nbg.png',
+                  height: DesktopDimensions.w100 * 2,
+                  width: DesktopDimensions.w100 * 2,
+                //  color: Colors.black,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
           ),
@@ -277,267 +272,7 @@ class _MyInfoState extends State<MyInfo> {
         ],
       ),
     );
-    // : Container(
-    //     margin: EdgeInsets.only(bottom: w20),
-    //     //  color: Colors.red,
-    //     // // width: 450, //w/3.54
-    //     height: w300,
-    //     child: Stack(
-    //       alignment: Alignment.topCenter,
-    //       clipBehavior: Clip.none,
-    //       children: [
-    //         Positioned(
-    //           top: h50 * 3, //130,
-    //           child: Container(
-    //               decoration: BoxDecoration(
-    //                   color: Colors.white.withOpacity(0.7),
-    //                   borderRadius: BorderRadius.circular(w10)),
-    //               padding: EdgeInsets.all(w10),
-    //               width: w - 20,
-    //               child: Column(
-    //                 mainAxisSize: MainAxisSize.max,
-    //                 children: [
-    //                   SizedBox(
-    //                     height: h50 * 1.9,
-    //                   ),
-    //                   Bigtext(
-    //                     text: "Md. Ruhul Amin",
-    //                     size: font25,
-    //                   ),
-    //                   Bigtext(
-    //                     text: "Flutter Developer",
-    //                     size: 15,
-    //                   ),
-    //                   SizedBox(
-    //                     height: w10,
-    //                   ),
-
-    //                   //Social Media
-    //                   Row(
-    //                     //     mainAxisSize: MainAxisSize.max,
-    //                     mainAxisAlignment: MainAxisAlignment.end,
-    //                     children: [
-    //                       InkWell(
-    //                         onTap: () {
-    //                           //        openUrl.LaunchUrl(facebook);
-    //                         },
-    //                         child: ContactCard(
-    //                           icon: SocialIconsFlutter.facebook,
-    //                         ),
-    //                       ),
-    //                       SizedBox(
-    //                         width: w10,
-    //                       ),
-    //                       InkWell(
-    //                         onTap: () {
-    //                           //      openUrl.launchEmail();
-    //                         },
-    //                         child: ContactCard(
-    //                           icon: Icons.email,
-    //                         ),
-    //                       ),
-    //                       SizedBox(
-    //                         width: w10,
-    //                       ),
-    //                       InkWell(
-    //                         onTap: () {
-    //                           //      openUrl.LaunchUrl(github);
-    //                         },
-    //                         child: ContactCard(
-    //                           icon: SocialIconsFlutter.github,
-    //                         ),
-    //                       ),
-    //                       SizedBox(
-    //                         width: w10,
-    //                       ),
-    //                       InkWell(
-    //                         onTap: () {
-    //                           //      openUrl.LaunchUrl(linkedin);
-    //                         },
-    //                         child: ContactCard(
-    //                           icon: SocialIconsFlutter.linkedin,
-    //                         ),
-    //                       ),
-    //                       SizedBox(
-    //                         width: w10,
-    //                       ),
-    //                       InkWell(
-    //                         onTap: () {
-    //                           //            openUrl.LaunchUrl(leetcode);
-    //                         },
-    //                         child: Container(
-    //                           alignment: Alignment.center,
-    //                           height: w10 * 3.5,
-    //                           width: w10 * 3.5,
-    //                           decoration: BoxDecoration(
-    //                             borderRadius: BorderRadius.circular(8),
-    //                             color: Color.fromARGB(255, 229, 245, 229),
-    //                             shape: BoxShape.rectangle,
-    //                           ),
-    //                           child: Image.asset(
-    //                             "assets/images/leetcode.png",
-    //                             height: w10 * 2.1,
-    //                             color: Colors.blue,
-    //                           ),
-    //                         ),
-    //                       ),
-    //                       Expanded(
-    //                         child: SizedBox(
-    //                           width: h20,
-    //                         ),
-    //                       ),
-    //                       InkWell(
-    //                         onTap: () {
-    //                           //       openUrl.LaunchUrl(resume);
-    //                         },
-    //                         child: Align(
-    //                           //   alignment: Alignment.topRight,
-    //                           child: Container(
-    //                             //  alignment: Alignment.topRight,
-    //                             padding: EdgeInsets.symmetric(
-    //                                 horizontal: w10, vertical: h10 / 2),
-    //                             decoration: BoxDecoration(
-    //                                 color: buttonColor,
-    //                                 borderRadius:
-    //                                     BorderRadius.circular(h10)),
-    //                             child: Row(
-    //                               mainAxisAlignment:
-    //                                   MainAxisAlignment.center,
-    //                               children: [
-    //                                 Icon(
-    //                                   Icons.download,
-    //                                   color: Colors.white,
-    //                                   size: w18,
-    //                                 ),
-    //                                 Bigtext(
-    //                                   text: "See CV",
-    //                                   size: MobileDimensions.font15,
-    //                                   color: Colors.white,
-    //                                 ),
-    //                               ],
-    //                             ),
-    //                           ),
-    //                         ),
-    //                       ),
-    //                     ],
-    //                   ),
-    //                 ],
-    //               )),
-    //         ),
-    //         Positioned(
-    //           top: h10,
-    //           left: (w - w100 * 1.3) / 2, // 130,
-    //           //    FF9C1A
-    //           child: Container(
-    //               alignment: Alignment.center,
-    //               decoration: BoxDecoration(
-    //                 borderRadius: BorderRadius.circular(10),
-    //                 color: Colors.orangeAccent,
-    //                 shape: BoxShape.rectangle,
-    //               ),
-    //               child: Image(
-    //                   width: w100 * 1.3,
-    //                   filterQuality: FilterQuality.high,
-    //                   height: w100 * 1.3,
-    //                   fit: BoxFit.cover,
-    //                   image: AssetImage("assets/images/panjabirbg2.png"))),
-    //         ),
-    //         Positioned(
-    //           bottom: -w30 * 1.2,
-    //           left: 7,
-    //           child: Row(mainAxisSize: MainAxisSize.max, children: [
-    //             Container(
-    //               width: w - 30,
-    //               alignment: Alignment.center,
-    //               padding:
-    //                   EdgeInsets.symmetric(horizontal: w10, vertical: h10),
-    //               decoration: BoxDecoration(
-    //                   borderRadius:
-    //                       BorderRadius.circular(MobileDimensions.h10),
-    //                   border: Border.all(color: Colors.grey)),
-    //               child: Row(
-    //                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    //                 children: [
-    //                   InkWell(
-    //                     onTap: () {
-    //                       setState(() {
-    //                         Get.find<MyController>()
-    //                             .updateSelectedButtonIndex(0);
-    //                         //   indexInstance.selectedIndex = 0;
-    //                         selectedIndex = 0;
-    //                       });
-    //                     },
-    //                     child: NavigationButton(
-    //                       index: 0,
-    //                       selectedIndex: selectedIndex,
-    //                       icon: Icons.home_outlined,
-    //                       text: "Home",
-    //                     ),
-    //                   ),
-    //                   SizedBox(
-    //                     width: MobileDimensions.w10,
-    //                   ),
-    //                   InkWell(
-    //                     onTap: () {
-    //                       setState(() {
-    //                         Get.find<MyController>()
-    //                             .updateSelectedButtonIndex(1);
-    //                         //  indexInstance.selectedIndex = 1;
-    //                         selectedIndex = 1;
-    //                       });
-    //                     },
-    //                     child: NavigationButton(
-    //                       index: 1,
-    //                       selectedIndex: selectedIndex,
-    //                       icon: Icons.document_scanner_sharp,
-    //                       text: "Resume",
-    //                     ),
-    //                   ),
-    //                   SizedBox(
-    //                     width: MobileDimensions.w10,
-    //                   ),
-    //                   InkWell(
-    //                     onTap: () {
-    //                       setState(() {
-    //                         Get.find<MyController>()
-    //                             .updateSelectedButtonIndex(2);
-    //                         //  indexInstance.selectedIndex = 2;
-    //                         selectedIndex = 2;
-    //                       });
-    //                     },
-    //                     child: NavigationButton(
-    //                       index: 2,
-    //                       selectedIndex: selectedIndex,
-    //                       icon: Icons.work_history_outlined,
-    //                       text: "Work",
-    //                     ),
-    //                   ),
-    //                   SizedBox(
-    //                     width: MobileDimensions.w10,
-    //                   ),
-    //                   InkWell(
-    //                     onTap: () {
-    //                       setState(() {
-    //                         Get.find<MyController>()
-    //                             .updateSelectedButtonIndex(3);
-    //                         //  indexInstance.selectedIndex = 3;
-    //                         selectedIndex = 3;
-    //                       });
-    //                     },
-    //                     child: NavigationButton(
-    //                       index: 3,
-    //                       selectedIndex: selectedIndex,
-    //                       icon: Icons.contacts_outlined,
-    //                       text: "Contact",
-    //                     ),
-    //                   ),
-    //                 ],
-    //               ),
-    //             ),
-    //           ]),
-    //         )
-    //       ],
-    //     ));
+   
   }
 }
 

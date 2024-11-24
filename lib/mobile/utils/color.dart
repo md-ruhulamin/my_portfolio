@@ -7,7 +7,6 @@ const Color textColor = Color(0xFFFFFFFF);
 const Color descriptionColor = Color(0x0B0909);
 
 const Color iconColor = Color.fromRGBO(249, 221, 182, 1);
-const Color bgColor = Color.fromARGB(120, 0, 0, 0);
+const Color lightbgColor = Color.fromARGB(120, 0, 0, 0);
 const Color cardColor = Color.fromARGB(240, 45, 44, 44);
 const Color staticColor = Color.fromARGB(240, 45, 44, 44);
- Color mobileCardColor = const Color.fromARGB(255, 53, 52, 52).withAlpha(160);

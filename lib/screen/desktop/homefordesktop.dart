@@ -3,7 +3,6 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-
 import 'package:my_portfolio/constant/dimension.dart';
 import 'package:my_portfolio/constant/size_definer.dart';
 import 'package:my_portfolio/screen/contact.dart';
@@ -13,17 +12,17 @@ import 'package:my_portfolio/screen/resume.dart';
 import 'package:my_portfolio/screen/work.dart';
 import 'package:my_portfolio/widget/navigationbutton.dart';
 
-class HomePage extends StatefulWidget {
-  HomePage({super.key});
+class DesktopHomePage extends StatefulWidget {
+  DesktopHomePage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<DesktopHomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<DesktopHomePage> {
   int selectedIndex = 0;
   List<Widget> pages = [
-    const Home(),
+    const HomeScreenForDesktop(),
     const Resume(),
     const Work(),
     const Contact()

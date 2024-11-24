@@ -20,7 +20,6 @@ class Contact extends StatelessWidget {
     final screensize = MediaQuery.of(context).size;
     double h = screensize.height;
     double w = screensize.width;
-    // ignore: non_constant_identifier_namesMobileDimensions
     final DesktopDimensions = DesktopResponsive(w, h);
     return MobileDimensions.screenWidth > mobilescreen
         ? Container(
@@ -28,10 +27,10 @@ class Contact extends StatelessWidget {
                 left: DesktopDimensions.w20,
                 right: DesktopDimensions.w20,
                 top: DesktopDimensions.w15,
-                bottom:DesktopDimensions. w10 / 2),
+                bottom: DesktopDimensions.w10 / 2),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(DesktopDimensions.w20),
-             color:  bgColor,
+              color: bgColor,
             ),
             height: DesktopDimensions.Pagesize,
             child: SingleChildScrollView(
@@ -51,7 +50,7 @@ class Contact extends StatelessWidget {
                         flex: 2,
                         child: ContactInfo(
                           w20: DesktopDimensions.w20,
-                          w10:DesktopDimensions.w10,
+                          w10: DesktopDimensions.w10,
                           h20: DesktopDimensions.h20,
                           w25: DesktopDimensions.w25,
                         ),
@@ -62,7 +61,10 @@ class Contact extends StatelessWidget {
                       Expanded(
                         flex: 2,
                         child: HireMeWidget(
-                            w20: DesktopDimensions.w20, h10: DesktopDimensions.h10, w10: DesktopDimensions.w10, w15: DesktopDimensions.w15),
+                            w20: DesktopDimensions.w20,
+                            h10: DesktopDimensions.h10,
+                            w10: DesktopDimensions.w10,
+                            w15: DesktopDimensions.w15),
                       ),
                     ],
                   ),
@@ -70,43 +72,50 @@ class Contact extends StatelessWidget {
                     height: DesktopDimensions.h10,
                   ),
                   Container(
-                      padding:
-                          EdgeInsets.symmetric(horizontal:DesktopDimensions. w20, vertical:DesktopDimensions. h10),
+                      padding: EdgeInsets.symmetric(
+                          horizontal: DesktopDimensions.w20,
+                          vertical: DesktopDimensions.h10),
                       decoration: BoxDecoration(
-                         color: cardColor,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.pink,
-              offset: const Offset(-2, 0),
-              blurRadius: 10,
-            ),
-            BoxShadow(
-              color: Colors.blue,
-              offset: const Offset(2, 0),
-              blurRadius:  10,
-            ),
-          ],
+                          color: cardColor,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.pink,
+                              offset: const Offset(-2, 0),
+                              blurRadius: 10,
+                            ),
+                            BoxShadow(
+                              color: Colors.blue,
+                              offset: const Offset(2, 0),
+                              blurRadius: 10,
+                            ),
+                          ],
                           borderRadius: BorderRadius.circular(10)),
-                      child:
-                          SendMessage(w15:DesktopDimensions. w15, w20: DesktopDimensions.w20, w10: DesktopDimensions.w10, h10:DesktopDimensions. h10))
+                      child: SendMessage(
+                          w15: DesktopDimensions.w15,
+                          w20: DesktopDimensions.w20,
+                          w10: DesktopDimensions.w10,
+                          h10: DesktopDimensions.h10))
                 ],
               ),
             ),
           )
         : Container(
+            margin: EdgeInsets.symmetric(horizontal: 10),
             padding: EdgeInsets.symmetric(
                 horizontal: MobileDimensions.w10,
                 vertical: MobileDimensions.w10),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(MobileDimensions.w10),
-              color: Colors.white,
-            ),
+            // decoration: BoxDecoration(
+            //   borderRadius: BorderRadius.circular(MobileDimensions.w10),
+            //   color: Colors.white,
+            // ),
             // height: 1000,
+
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Bigtext(
                   text: "Contact ",
+                  color: Colors.black,
                   size: MobileDimensions.font20,
                 ),
                 SizedBox(
@@ -116,14 +125,14 @@ class Contact extends StatelessWidget {
                   children: [
                     Expanded(
                       child: Container(
+                       
                         padding: EdgeInsets.symmetric(
-                          horizontal: MobileDimensions.w10,
-                          vertical: MobileDimensions.h10,
-                        ),
+                            horizontal: MobileDimensions.w10,
+                            vertical: MobileDimensions.h10),
                         decoration: BoxDecoration(
                           borderRadius:
                               BorderRadius.circular(MobileDimensions.w10),
-                          color: cardColor,
+                          color: mobileCardColor,
                         ),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -175,21 +184,19 @@ class Contact extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(
-                      width: MobileDimensions.w10,
-                    ),
+                    
                   ],
                 ),
                 SizedBox(
-                  height: MobileDimensions.h10,
+                  height: MobileDimensions.h20,
                 ),
                 Container(
                   padding: EdgeInsets.symmetric(
-                      horizontal: MobileDimensions.w20,
+                      horizontal: MobileDimensions.w10,
                       vertical: MobileDimensions.h10),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(MobileDimensions.w10),
-                    color: const Color.fromARGB(255, 239, 239, 239),
+                    color: mobileCardColor,
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -198,6 +205,7 @@ class Contact extends StatelessWidget {
                         text:
                             "I am always open to discussing new projects, opportunities in tech world, partnerships and more so mentorship.You are welcome.If you got a new project,let's connect and make it happens.",
                         size: MobileDimensions.font15,
+                        color: Colors.black,
                       ),
                       SizedBox(
                         height: MobileDimensions.h10,
@@ -223,14 +231,14 @@ class Contact extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  height: MobileDimensions.w10 / 2,
+                  height: MobileDimensions.w10,
                 ),
                 Container(
                     padding: EdgeInsets.symmetric(
                         horizontal: MobileDimensions.w20,
                         vertical: MobileDimensions.h10),
                     decoration: BoxDecoration(
-                        color: const Color.fromARGB(255, 239, 239, 239),
+                        color: mobileCardColor,
                         borderRadius: BorderRadius.circular(10)),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -289,7 +297,7 @@ class Contact extends StatelessWidget {
 class TextFieldForContact extends StatelessWidget {
   final String text;
   final int numberoflines;
-  TextFieldForContact(
+  const TextFieldForContact(
       {super.key, required this.text, required this.numberoflines});
 
   @override
@@ -297,15 +305,15 @@ class TextFieldForContact extends StatelessWidget {
     final screensize = MediaQuery.of(context).size;
     double h = screensize.height;
     double w = screensize.width;
- // ignore: non_constant_identifier_names
- final DesktopDimensions = DesktopResponsive(w, h);
+    // ignore: non_constant_identifier_names
+    final DesktopDimensions = DesktopResponsive(w, h);
     return Container(
         alignment: Alignment.centerLeft,
         child: TextFormField(
           decoration: InputDecoration(
               hintText: text,
               hintStyle: TextStyle(
-                color: Colors.white,
+                  color: Colors.white,
                   fontSize: DesktopDimensions.screenWidth > 650
                       ? DesktopDimensions.font15
                       : MobileDimensions.font15)),

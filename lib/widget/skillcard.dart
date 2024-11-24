@@ -61,8 +61,8 @@ class _SkillCardState extends State<SkillCard> {
                       blurRadius: isHover ? 20 : 10,
                     ),
                   ],
-                  color:cardColor,
-               //   color: Color.fromRGBO(45, 44, 44, 1).withOpacity(0.8),
+                  color: cardColor,
+                  //   color: Color.fromRGBO(45, 44, 44, 1).withOpacity(0.8),
                   borderRadius: BorderRadius.circular(30),
                 ),
                 padding: EdgeInsets.symmetric(
@@ -91,21 +91,23 @@ class _SkillCardState extends State<SkillCard> {
             ),
           )
         : Container(
+            width: w,
             margin: EdgeInsets.symmetric(
-                horizontal: MobileDimensions.w10,
+                horizontal: MobileDimensions.w5,
                 vertical: MobileDimensions.w10),
             decoration: BoxDecoration(
-                boxShadow: const [
-                  BoxShadow(
-                      color: Colors.grey,
-                      blurRadius: 3,
-                      offset: (Offset(1, -1))),
-                  BoxShadow(
-                      color: Colors.grey,
-                      blurRadius: 3,
-                      offset: (Offset(-1, 1))),
-                ],
-                color: Colors.white.withOpacity(0.8),
+                color: mobileCardColor,
+                //     boxShadow: const [
+                //       BoxShadow(
+                //           color: Colors.grey,
+                //           blurRadius: 3,
+                //           offset: (Offset(1, -1))),
+                //       BoxShadow(
+                //           color: Colors.grey,
+                //           blurRadius: 3,
+                //           offset: (Offset(-1, 1))),
+                //     ],
+
                 borderRadius: BorderRadius.circular(MobileDimensions.w10)),
             padding: EdgeInsets.symmetric(
                 horizontal: MobileDimensions.w10,
@@ -122,7 +124,7 @@ class _SkillCardState extends State<SkillCard> {
                 ),
                 Bigtext(
                   text: widget.subtitle,
-                  size: MobileDimensions.font15,
+                  size: MobileDimensions.font17,
                 )
               ],
             ),

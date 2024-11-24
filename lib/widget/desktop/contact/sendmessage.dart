@@ -60,7 +60,7 @@ class SendMessage extends StatelessWidget {
                   color: buttonColor,
                   borderRadius: BorderRadius.circular(w10)),
               padding: EdgeInsets.symmetric(
-                  vertical: w10, horizontal: w15),
+                  vertical: w10/2, horizontal: w15),
               child: Bigtext(
                 text: "Send Message",
                 color: Colors.white,

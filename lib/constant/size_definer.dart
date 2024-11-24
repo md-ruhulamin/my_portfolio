@@ -1,5 +1,5 @@
 const double Pagesize = 560;
-const double mobilescreen = 600;
+const double mobilescreen = 550;
 // const double widthbetweennavigation = 20;
 // const double mh20 = 20;
 // const double mh10 = 10;

@@ -20,15 +20,12 @@ class ChipContainer extends StatelessWidget {
     final DesktopDimensions = DesktopResponsive(w, h);
 
     double w10 = DesktopDimensions.w10;
-
-    0;
-
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: w10, vertical: w10/2 ),
+      padding: EdgeInsets.symmetric(horizontal: 7, vertical: w10 / 2),
       decoration: BoxDecoration(
           color: staticColor,
           border: Border.all(color: Colors.grey),
-          borderRadius: BorderRadius.circular(w10 / 2)),
+          borderRadius: BorderRadius.circular(5)),
       child: SmallText(
         text: text,
         size: DesktopDimensions.screenWidth > 650

@@ -62,7 +62,7 @@ class _NavigationButtonState extends State<NavigationButton> {
                                 offset: (Offset(-1, 1))),
                           ],
                 color: (widget.selectedIndex == widget.index)
-                    ? buttonColor
+                    ? Colors.orangeAccent
                     : (widget.selectedIndex != widget.index && isHover)
                         ?  cardColor
                         : Colors.white,
@@ -108,8 +108,8 @@ class _NavigationButtonState extends State<NavigationButton> {
                 horizontal: MobileDimensions.w10),
             decoration: BoxDecoration(
                 color: widget.selectedIndex == widget.index
-                    ? buttonColor
-                    : Color.fromARGB(255, 252, 251, 251),
+                    ? Colors.orange
+                    : Color.fromARGB(255, 250, 227, 227),
                 borderRadius: BorderRadius.circular(MobileDimensions.w10)),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,

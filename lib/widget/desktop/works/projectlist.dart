@@ -30,7 +30,7 @@ class ProjectList extends StatelessWidget {
             preview:
                 "https://drive.google.com/drive/folders/1LujI03mCuy9H_rqpAJTyJyLpVSv7gTss?usp=sharing",
           ),
-         
+
           ProjectCard(
             title: "T-Shirt Size Prediction App",
             subtitle: "Dart,KNN-Machine Learning",
@@ -41,15 +41,36 @@ class ProjectList extends StatelessWidget {
                 "https://drive.google.com/drive/folders/1v4EoiuQPENizLKLFND9D3Hh7r9elrP7l?usp=sharing",
           ),
           ProjectCard(
-            title: "Food App | UI",
-            subtitle: "Dart,Api,GetX",
+            title: "Expenses,Task and Notes Tracker App",
+            subtitle: "Dart,Sqflite,GetX,Math",
             //  path: "assets/images/appss1.png",
             details:
-                " Developed a customer-friendly food app, and redesigned the UI utilizing previous UI elements. Firebase and Shared Preference are used for storing user sessions and other info. GetX is used for state management.",
-            url: "https://github.com/md-ruhulamin/food_delivery",
+                "Developed an app integrating expense tracking, task management, and note-taking with a user-friendly interface. Leveraged  to deliver an efficient and scalable solution.",
+            url: "https://github.com/md-ruhulamin/ExNTask",
             preview:
-                "https://drive.google.com/drive/folders/14rbl5MZfxT5WY6sP74feSNd03XoICbn3?usp=sharing",
+                "https://drive.google.com/drive/u/2/folders/1rPFgHpP2FpNP2NJ-h1QGPMHlM6qDWYzQ",
           ),
+
+          //  ProjectCard(
+          //   title: "Teachingg-Edtech App",
+          //   subtitle: "Firebase, Api, GetX, Video Player, Camera",
+          //   //  path: "assets/images/appss1.png",
+          //   details:
+          //       "  developed a Flutter Edtech app facilitating online courses, featuring structured daily lessons with color-coded progression camera verification for class access, MCQ tests, and personalized feedbackbased on performance.. ",
+          //   url: "https://github.com/md-ruhulamin/marine_edtech",
+          //   preview:
+          //       "https://github.com/md-ruhulamin/marine_edtech",
+          //  ),
+          // ProjectCard(
+          //   title: "Food App | UI",
+          //   subtitle: "Dart,Api,GetX",
+          //   //  path: "assets/images/appss1.png",
+          //   details:
+          //       " Developed a customer-friendly food app, and redesigned the UI utilizing previous UI elements. Firebase and Shared Preference are used for storing user sessions and other info. GetX is used for state management.",
+          //   url: "https://github.com/md-ruhulamin/food_delivery",
+          //   preview:
+          //       "https://drive.google.com/drive/folders/14rbl5MZfxT5WY6sP74feSNd03XoICbn3?usp=sharing",
+          // ),
           ProjectCard(
             title: "Gender Bias Text Detection",
             subtitle: "Android ,Java,Machine Learning",
@@ -68,19 +89,29 @@ class ProjectList extends StatelessWidget {
 
             details:
                 "A temporary email application works by generating a temporary email address that you can use for a specific purpose. such as: Verification ,  Privacy and Spam Prevention  etc.",
-            url:
-                "https://github.com/md-ruhulamin/temporary__email",
-            preview:
-                "https://github.com/md-ruhulamin/temporary__email",
-          ), ProjectCard(
-            title: "HealthCare | Android App",
-            subtitle: "Java,Firebase,API",
+            url: "https://github.com/md-ruhulamin/temporary__email",
+            preview: "https://github.com/md-ruhulamin/temporary__email",
+          ),
+          ProjectCard(
+            title: "Vocab Store",
+            subtitle: "Firebase ,Flutter ,Local storage",
             //  details: "assets/images/healthcare.png",
             details:
-                "A healthcare app that provides health realeted services and provide online appoinment to any doctor",
-            url: "https://github.com/md-ruhulamin/healthcare",
-            preview: "preview",
+                "I  developed a Flutter-based vocabulary-learning app where users can add, store, and update words in their dictionary using Firebase, and review them via quiz cards. Each quiz card displays the main word on one side and its meaning on the other.Also showing the use of that word in sentences via example.",
+            url: "https://github.com/md-ruhulamin/vocab_store",
+            preview:
+                "https://drive.google.com/drive/folders/1wVDFBH08GDnCn-gJXfRvGlObLdgOyB33?usp=sharing",
           ),
+
+          //  ProjectCard(
+          //   title: "HealthCare | Android App",
+          //   subtitle: "Java,Firebase,API",
+          //   //  details: "assets/images/healthcare.png",
+          //   details:
+          //       "A healthcare app that provides health realeted services and provide online appoinment to any doctor",
+          //   url: "https://github.com/md-ruhulamin/healthcare",
+          //   preview: "preview",
+          // ),
         ],
       ),
     );

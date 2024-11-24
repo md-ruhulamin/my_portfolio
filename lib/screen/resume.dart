@@ -21,18 +21,19 @@ class Resume extends StatelessWidget {
     final screensize = MediaQuery.of(context).size;
     double h = screensize.height;
     double w = screensize.width;
- // ignore: non_constant_identifier_names
- final DesktopDimensions = DesktopResponsive(w, h);
+    // ignore: non_constant_identifier_names
+    final DesktopDimensions = DesktopResponsive(w, h);
 
     return MobileDimensions.screenWidth > mobilescreen
         ? Container(
-            
             padding: EdgeInsets.only(
-                left: DesktopDimensions.w20, right: DesktopDimensions.w20, 
-                top: DesktopDimensions.w15, bottom:DesktopDimensions. w10 / 2),
+                left: DesktopDimensions.w20,
+                right: DesktopDimensions.w20,
+                top: DesktopDimensions.w15,
+                bottom: DesktopDimensions.w10 / 2),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(DesktopDimensions.w20),
-               color:  bgColor,
+              color: bgColor,
             ),
             height: DesktopDimensions.Pagesize,
             child: SingleChildScrollView(
@@ -40,17 +41,18 @@ class Resume extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Bigtext(
-                    text: "Resume",
-                    size: DesktopDimensions.headingfontsize,
-                    color:textColor
-                  ),
+                      text: "Resume",
+                      size: DesktopDimensions.headingfontsize,
+                      color: textColor),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Expanded(
-                        child:
-                            Education(w30:DesktopDimensions. w30, h10: DesktopDimensions.h10,
-                             w20: DesktopDimensions.w20, w10: DesktopDimensions.w10),
+                        child: Education(
+                            w30: DesktopDimensions.w30,
+                            h10: DesktopDimensions.h10,
+                            w20: DesktopDimensions.w20,
+                            w10: DesktopDimensions.w10),
                       ),
                       SizedBox(
                         width: DesktopDimensions.w10,
@@ -70,7 +72,7 @@ class Resume extends StatelessWidget {
                         child: WorkSkill(),
                       ),
                       SizedBox(
-                        width:DesktopDimensions. w10,
+                        width: DesktopDimensions.w10,
                       ),
                       Expanded(
                         flex: 1,
@@ -83,14 +85,14 @@ class Resume extends StatelessWidget {
             ),
           )
         : Container(
-            // margin: EdgeInsets.only(top: w10),
+            margin: EdgeInsets.symmetric(horizontal: MobileDimensions.w10),
             padding: EdgeInsets.symmetric(
                 horizontal: MobileDimensions.w10,
                 vertical: MobileDimensions.w10),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(MobileDimensions.w20),
-              color: Colors.white,
-            ),
+            // decoration: BoxDecoration(
+            //   borderRadius: BorderRadius.circular(MobileDimensions.w20),
+            //   color: Colors.white,
+            // ),
             //  height: pagesize,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -98,6 +100,7 @@ class Resume extends StatelessWidget {
                 Bigtext(
                   text: "Resume",
                   size: MobileDimensions.font25,
+                  color: Colors.black,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -115,6 +118,7 @@ class Resume extends StatelessWidget {
                               ),
                               Bigtext(
                                 text: " Education",
+                                color: Colors.black,
                                 size: MobileDimensions.font20,
                               ),
                             ],
@@ -123,13 +127,15 @@ class Resume extends StatelessWidget {
                             height: MobileDimensions.w10,
                           ),
                           Container(
+                            width: double.infinity,
                             padding: EdgeInsets.symmetric(
                                 horizontal: MobileDimensions.w10,
                                 vertical: MobileDimensions.w10),
                             decoration: BoxDecoration(
                                 borderRadius:
                                     BorderRadius.circular(MobileDimensions.w10),
-                                color: cardColor),
+                                color: mobileCardColor
+                                ),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -153,13 +159,14 @@ class Resume extends StatelessWidget {
                             height: MobileDimensions.w10,
                           ),
                           Container(
+                            width: double.infinity,
                             padding: EdgeInsets.symmetric(
                                 horizontal: MobileDimensions.w10,
                                 vertical: MobileDimensions.h10),
                             decoration: BoxDecoration(
                               borderRadius:
                                   BorderRadius.circular(MobileDimensions.w10),
-                              color: cardColor,
+                              color:mobileCardColor
 
                               //   color: Colors.white.withOpacity(0.8),
                             ),
@@ -202,6 +209,7 @@ class Resume extends StatelessWidget {
                         children: [
                           Bigtext(
                             text: "Work Skills",
+                            color: Colors.black,
                             size: MobileDimensions.font20,
                           ),
                           SizedBox(
@@ -240,6 +248,7 @@ class Resume extends StatelessWidget {
                         children: [
                           Bigtext(
                             text: "Soft Skills",
+                            color: Colors.black,
                             size: MobileDimensions.font20,
                           ),
                           SizedBox(
@@ -279,6 +288,7 @@ class Resume extends StatelessWidget {
                         ),
                         Bigtext(
                           text: "  Experience",
+                          color: Colors.black,
                           size: MobileDimensions.font20,
                         ),
                       ],
@@ -292,7 +302,7 @@ class Resume extends StatelessWidget {
                           vertical: MobileDimensions.w10),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        color: cardColor,
+                        color: mobileCardColor
                       ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,

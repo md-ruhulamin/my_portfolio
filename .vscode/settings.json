@@ -1,3 +1,4 @@
 {
-    "cmake.sourceDirectory": "/ruhul/flutter/my_portfolio/linux/flutter"
+    "cmake.sourceDirectory": "/ruhul/flutter/my_portfolio/linux/flutter",
+    "java.compile.nullAnalysis.mode": "automatic"
 }
