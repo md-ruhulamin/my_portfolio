@@ -42,14 +42,14 @@ class ProjectCardForMobile extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           //  Image(image: AssetImage(path), height: MobileDimensions.h100),
-          Text(title,
+          Text(title,maxLines: 1,
               style: TextStyle(
-                  fontSize: MobileDimensions.font17 * 1.2,color: Colors.black,
+                  fontSize: MobileDimensions.font17 *1,color: Colors.black,
 
                   fontWeight: FontWeight.w600)),
                   Divider(height: 1,color: Color.fromARGB(255, 94, 94, 94),)
 ,          Text(details,
-              maxLines: 5,
+              maxLines: 4,
               textAlign: TextAlign.justify,
               style: TextStyle(
                   fontSize: MobileDimensions.font15,

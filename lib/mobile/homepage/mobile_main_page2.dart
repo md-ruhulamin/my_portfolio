@@ -38,7 +38,7 @@ class _MyInfoPageState extends State<MyInfoPage> {
           children: [
             //     Positioned(child: FlyingBubbles()),
             Positioned(
-              top: MobileDimensions.h100 * 0.9, //130,
+              top: MobileDimensions.h100 * 1, //130,
               child: Container(
                   decoration: BoxDecoration(
                       color: Colors.white.withOpacity(0.4),

@@ -57,7 +57,7 @@ class WorkScreenForMobile extends StatelessWidget {
                       "https://drive.google.com/drive/folders/1LujI03mCuy9H_rqpAJTyJyLpVSv7gTss?usp=sharing",
                 ),
                 ProjectCard(
-                  title: "Expenses,Task and Notes Tracker App",
+                  title: "Expense,Task and Note Tracker App",
                   subtitle: "Dart,Sqflite,GetX,Math",
                   //  path: "assets/images/appss1.png",
                   details:

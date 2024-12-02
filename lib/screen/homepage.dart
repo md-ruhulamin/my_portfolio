@@ -120,21 +120,21 @@ class _MobileHomeTestState extends State<MobileHomeTest> {
                   height: MobileDimensions.w20,
                 ),
                 pages[indexController.numbers[0]],
-                SizedBox(
-                  height: MobileDimensions.h10,
-                ),
-                pages[indexController.numbers[1]],
-                SizedBox(
-                  height: MobileDimensions.h10,
-                ),
-                pages[indexController.numbers[2]],
-                SizedBox(
-                  height: MobileDimensions.h10,
-                ),
-                pages[indexController.numbers[3]],
-                SizedBox(
-                  height: MobileDimensions.h10,
-                ),
+                // SizedBox(
+                //   height: MobileDimensions.h10,
+                // ),
+                // pages[indexController.numbers[1]],
+                // SizedBox(
+                //   height: MobileDimensions.h10,
+                // ),
+                // pages[indexController.numbers[2]],
+                // SizedBox(
+                //   height: MobileDimensions.h10,
+                // ),
+                // pages[indexController.numbers[3]],
+                // SizedBox(
+                //   height: MobileDimensions.h10,
+                // ),
               ],
             ),
           ),

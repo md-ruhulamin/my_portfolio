@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
@@ -19,6 +20,9 @@ class MyApp extends StatelessWidget {
     
     final textTheme = Theme.of(context).textTheme;
     return GetMaterialApp(
+       scrollBehavior: MaterialScrollBehavior().copyWith(
+        dragDevices: {PointerDeviceKind.mouse, PointerDeviceKind.touch, PointerDeviceKind.stylus, PointerDeviceKind.unknown},
+      ),
       debugShowCheckedModeBanner: false,
       title: "Ruhul Amin's Portfolio",
       theme: ThemeData(
